@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import WeatherData from "./WeatherData";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./styles.css";
 
 export default function Search(props) {
-  const [ready, setReady] = useState(false);
+  const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [weatherData, setWeatherData] = useState({});
   function handleResponse(response) {
     setWeatherData({
+      ready: true,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
       city: response.data.city,
@@ -18,8 +18,6 @@ export default function Search(props) {
       pressure: response.data.temperature.pressure,
       date: new Date(response.data.time * 1000),
     });
-
-    setReady(true);
   }
 
   function search() {
@@ -36,7 +34,7 @@ export default function Search(props) {
   function handleCityChange(event) {
     setCity(event.target.value);
   }
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div>
         <div className="Weather">
@@ -50,6 +48,7 @@ export default function Search(props) {
             <input type="submit" value="Search" />
           </form>
         </div>
+        <WeatherInfo info={weatherData} />
       </div>
     );
   } else {
