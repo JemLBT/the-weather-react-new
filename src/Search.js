@@ -48,7 +48,7 @@ export default function Search(props) {
             <input type="submit" value="Search" />
           </form>
         </div>
-        <WeatherInfo info={weatherData} />
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
