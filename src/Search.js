@@ -13,7 +13,7 @@ export default function Search(props) {
       wind: response.data.wind.speed,
       city: response.data.city,
       description: response.data.condition.description,
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      icon: response.data.weather[0].icon,
       humidity: response.data.temperature.humidity,
       pressure: response.data.temperature.pressure,
       date: new Date(response.data.time * 1000),
