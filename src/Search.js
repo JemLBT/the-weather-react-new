@@ -13,7 +13,7 @@ export default function Search(props) {
       wind: response.data.wind.speed,
       city: response.data.city,
       description: response.data.condition.description,
-      icon: response.data.weather[0].icon,
+      iconUrl: response.data.condition.icon_url,
       humidity: response.data.temperature.humidity,
       pressure: response.data.temperature.pressure,
       date: new Date(response.data.time * 1000),
