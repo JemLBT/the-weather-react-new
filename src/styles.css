@@ -53,7 +53,7 @@ p {
 }
 
 .Weather .temperature {
-  color: black;
+  color: rgb(139, 122, 122);
   font-weight: 600;
   font-size: 64px;
 }
