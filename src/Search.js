@@ -11,6 +11,7 @@ export default function Search(props) {
       ready: true,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
+      coord: response.data.coord,
       city: response.data.city,
       description: response.data.condition.description,
       icon: response.data.condition.icon,
@@ -49,7 +50,7 @@ export default function Search(props) {
           </form>
         </div>
         <WeatherInfo data={weatherData} />
-        <WeatherForecast />
+        <WeatherForecast coords={weatherData.coord} />
       </div>
     );
   } else {
